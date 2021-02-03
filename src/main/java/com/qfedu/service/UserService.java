@@ -11,4 +11,11 @@ public interface UserService {
      * @return          返回一个对象
      */
     User getLogin(String name, String password);
+
+    /**
+     *
+     * @param user
+     * @return
+     */
+    public Boolean getRegister(User user);
 }

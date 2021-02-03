@@ -10,4 +10,13 @@ public interface UserDao {
      * @return  返回当前用户的信息
      */
     User login(String name);
+
+    /**
+     * 注册功能
+     * @param user
+     * @return
+     */
+    public int register(User user);
+
+
 }

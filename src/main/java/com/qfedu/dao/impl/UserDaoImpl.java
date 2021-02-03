@@ -14,4 +14,14 @@ public class UserDaoImpl implements UserDao {
         session.close();
         return login;
     }
+
+    @Override
+    public int register(User user) {
+        SqlSession session = MybatisUtils.getSqlSession();
+        UserDao mapper = session.getMapper(UserDao.class);
+        int register = mapper.register(user);
+        session.commit();
+        session.close();
+        return register;
+    }
 }

@@ -5,6 +5,8 @@ import com.qfedu.dao.impl.UserDaoImpl;
 import com.qfedu.entity.User;
 import com.qfedu.service.UserService;
 
+import java.lang.reflect.Parameter;
+
 public class UserServiceImpl implements UserService {
 
     UserDao userDao = new UserDaoImpl();
@@ -20,6 +22,19 @@ public class UserServiceImpl implements UserService {
         }
 
         return user;
+    }
+
+    @Override
+    public Boolean getRegister(User user) {
+
+        int register = 0;
+        register = userDao.register(user);
+
+        if (register == 0) {
+            throw new RuntimeException("用户名重复");
+        }else {
+            return true;
+        }
     }
 
 }
